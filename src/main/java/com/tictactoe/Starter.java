@@ -1,17 +1,8 @@
 package com.tictactoe;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.Map.Entry;
 
 public class Starter {
@@ -21,6 +12,7 @@ public class Starter {
 
     // systeme de tour avec X et O
     // + random tour ordi
+
     Map<Integer, String> map = new HashMap<Integer, String>();
     Integer round = 1;
 
@@ -91,7 +83,7 @@ public class Starter {
 
             // MAJ DU TABLEAU
             map.put(cle, crossOrCircle);
-            verifWin();
+            verifWin(crossOrCircle);
             round++;
             System.out.println("ROUND : " + round);
             affichage(map);
@@ -110,17 +102,16 @@ public class Starter {
     void quitGame() {
         round = 0;
         System.out.println("See you later !");
+        System.exit(0);
     }
 
-    void verifWin() {
+    void verifWin(String value) {
         // verification si il y a un winner
-        if ((map.get(1).equals("X") || map.get(1).equals("O"))
-                && map.get(1).equals(map.get(2))
-                && map.get(2).equals(map.get(3))) {
-            System.out.println("win");
+
+        if (map.get(1) == value && map.get(2) == value && map.get(3) == value) {
+            System.out.println("Joueur de : " + value + " a gagné sur la première ligne !");
             quitGame();
         }
-
     }
 
 }
