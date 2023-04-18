@@ -18,8 +18,11 @@ public class App {
             System.out.println("You start and you play the crosses !");
 
             // game start
+            // Affichage affichage = new Affichage();
+            // affichage.firstAffichage();
+
             Starter starter = new Starter();
-            starter.firstAffichage();
+            starter.start();
         } else {
             System.out.print(" No problem, another time");
             // end
